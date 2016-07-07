@@ -1,6 +1,6 @@
 {
-  "name": "test-chat",
-  "description": "test chat socket io angular",
+  "name": "baseSketch",
+  "description": "sketch base para p5 con angular",
   "main": "servidor/app.js",
   "authors": [
     "Camilo Posada Angel"
@@ -9,7 +9,9 @@
   "keywords": [
     "node",
     "angular",
-    "socketio"
+    "socketio",
+    "p5Js",
+    "sketch"
   ],
   "homepage": "later",
   "private": true,

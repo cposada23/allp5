@@ -1,13 +1,13 @@
 {
-  "name": "test1",
+  "name": "baseSketch",
   "version": "1.0.0",
-  "description": "test p5 con node ",
+  "description": "esketch base para trabajos con angular junto a p5js y nodejs",
   "main": "servidor/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node servidor/app.js"
   },
-  "author": "camilo posada",
+  "author": "Camilo Posada Angel",
   "license": "ISC",
   "dependencies": {
     "async": "^2.0.0-rc.6",
