@@ -11,7 +11,7 @@ function Particle(x,y,p) {
     }
 
     this.show = function () {
-        console.log("llamado");
+       
         p.noStroke();
         p.fill(255,15,45);
         p.ellipse(this.x,this.y,24,24);

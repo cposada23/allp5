@@ -1,7 +1,7 @@
 {
   "name": "baseSketch",
   "version": "1.0.0",
-  "description": "esketch base para trabajos con angular junto a p5js y nodejs",
+  "description": "Todos los proyectos , trabajando con p5 angular y nodejs",
   "main": "servidor/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

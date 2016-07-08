@@ -1,6 +1,6 @@
 {
   "name": "baseSketch",
-  "description": "sketch base para p5 con angular",
+  "description": "Todos los proyectos , trabajando con p5 angular y nodejs",
   "main": "servidor/app.js",
   "authors": [
     "Camilo Posada Angel"

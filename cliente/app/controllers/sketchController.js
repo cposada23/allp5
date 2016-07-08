@@ -25,7 +25,7 @@
                 video.size(p.width/vScale,p.height/vScale);
                 //input = p.createInput("Hola");
                 //input.changed(p.textChanged);
-                //particle = new Particle(320,240,p);
+                particle = new Particle(320,240,p);
 
                 //
             };
@@ -41,10 +41,10 @@
                 p.noStroke();
                 p.ellipse(p.mouseX,p.mouseY,10,10);
             };*/
-            /*p.draw = function () {
+            p.draw = function () {
                 p.background(26);
                 particle.update();
-                particle.show();*/
+                particle.show();
                 /*video.loadPixels();
 
                 for(var y = 0; y<video.height; y++){
@@ -66,7 +66,7 @@
                 p.ellipse(x,y,50,50);
                 x = (x + p.random(-10,10))%width;
                 y = (y + p.random(-10,10))%height;*/
-            /*};*/
+            };
         };
 
         var myP5 = new p5(sketch);

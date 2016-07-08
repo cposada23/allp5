@@ -9,14 +9,22 @@
     /* app CONFIG */
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('sketch');
+
+        /* Routes */
+        $urlRouterProvider.otherwise('home');
         
         $stateProvider
-            .state('Sketch',{
-                url:'/sketch',
-                templateUrl:"cliente/views/sketch.html",
-                controller:"sketchController as sketch"
+            
+            .state('Fireworks',{
+                url:'/fireworks',
+                templateUrl:"cliente/app/projects/fireworks/fireworks.html",
+                controller:"fireworkController as firework"
+            }).state('Home',{
+                url:'/home',
+                templateUrl:"cliente/views/sketch.html"
             });
+
+
     }
     
     
