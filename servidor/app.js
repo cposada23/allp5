@@ -15,10 +15,17 @@ function newConnection (socket) {
 	// body...
 	console.log('newConection ' + socket.id);
 	socket.on('mouse',mouseMsg);
-
+	socket.on('msg', sendMsg);
 	function  mouseMsg (data) {
 		socket.broadcast.emit('mouse',data);
 		//console.log(data);
+	}
+
+	function sendMsg(data) {
+		var message = data.message;
+		var quien = data.quien;
+		message.quien = quien;
+		socket.broadcast.emit('newMsg', message);
 	}
 }
 

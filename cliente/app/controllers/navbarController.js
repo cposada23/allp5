@@ -3,9 +3,9 @@
 (function () {
     angular.module('p5Sketch').controller('navbarController', navbarController);
 
-    navbarController.$inject = ['fireworkService', 'drawService'];
+    navbarController.$inject = ['fireworkService', 'drawService','chatService'];
     
-    function navbarController(fireworkService,drawService) {
+    function navbarController(fireworkService,drawService,chatService) {
         var vm = this;
         vm.sketch;
 
@@ -28,5 +28,13 @@
             vm.sketch = fireworkService.sketch();
             
         };
+
+        vm.createChat = function () {
+            console.log("Chat");
+            if(vm.sketch){
+                vm.sketch.remove();
+            }
+            vm.sketch = chatService.sketch();
+        }
     }
 }());

@@ -21,15 +21,17 @@
 
     <nav class = "navbar navbar-inverse navbar-fixed-top" ng-controller="navbarController as navCtrl">
       <div class="container-fluid">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Proyectos</a>
-
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Proyectos</a>
+        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" data-toggle="collapse" data-target="#myNavbar">
+            <li><a href="#" ng-click="navCtrl.createChat()">Chat</a></li>
             <li><a href="#" ng-click="navCtrl.createFireworks()">Video</a></li>
             <li><a href="#" ng-click="navCtrl.createFireworks()">Fireworks</a> </li>
             <li><a href="#" ng-click="navCtrl.createDrawing()">Dibujar</a> </li>
@@ -37,6 +39,9 @@
         </div>
       </div>
     </nav>
+    <br>
+    <br>
+    <h1></h1>
     <div ui-view></div>
     
     <!-- scripts-->
@@ -59,6 +64,7 @@
       <!-- Servicios -->
         <script type="text/javascript" src="/cliente/app/services/drawService.js"></script>
         <script type="text/javascript" src="/cliente/app/services/fireworkService.js"></script>
-    
+        <script type="text/javascript" src="/cliente/app/services/chatService.js"></script>
+
   </body>
 </html>
