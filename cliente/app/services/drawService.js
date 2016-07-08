@@ -12,9 +12,10 @@
                     var r = p.random(0,255);
                     var g = p.random(0,255);
                     var b = p.random(0,255);
+
                     p.setup = function () {
-                        p.createCanvas(800,400);
-                        p.background(51);
+                        p.createCanvas(screen.width,screen.height);
+                        p.background(0);
                         socket.on('mouse', p.newDrawing);
                     };
 
