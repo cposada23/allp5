@@ -10,6 +10,7 @@
         vm.sketch;
 
 
+        console.log("nav controller");
         vm.createDrawing = function () {
             console.log("Click");
             if  (vm.sketch){
@@ -36,5 +37,7 @@
             }
             vm.sketch = chatService.sketch();
         }
+
+        vm.createDrawing();
     }
 }());
