@@ -5,7 +5,7 @@ module.exports = function  (server) {
     io.sockets.on('connection', newConnection);
 
     function newConnection (socket) {
-        console.log(socket.id + " Usuarios conectados: " );
+        console.log(socket.rooms);
         require('./connect/roomChat')(io,socket);
         socket.on('mouse',mouseMsg);
         function  mouseMsg (data) {

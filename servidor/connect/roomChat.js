@@ -33,6 +33,7 @@ module.exports = function  (io,socket) {
         io.to('chat').emit('joinChat',defaultMessage);
         users++;
         console.log("joined " + users);
+        console.log("socket rooms " + JSON.stringify(socket.rooms));
     }
 
     function sendMsg(data) {

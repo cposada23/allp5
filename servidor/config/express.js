@@ -21,6 +21,10 @@ module.exports = function  (app) {
 	app.use(morgan('dev'));
 	app.use(errorHandler());
 
+	/*app.use(express.json());
+	app.use(express.urlencoded());*/
+	
+	
 	app.use(function  (req,res,next) {
 		res.setHeader('Access-Controll-Allow-Origin', '*');
 

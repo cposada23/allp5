@@ -1,0 +1,9 @@
+<h1>Hola desde auth</h1>
+<h3>{{auth.usuario}}</h3>
+<input type="text" placeholder="Usuario" ng-model="auth.usuario.usuario"/>
+<input type="text" placeholder="Contraseña" ng-model="auth.usuario.contrasena">
+<button ng-click="auth.autenticar()">Autenticar</button>
+
+
+<button ng-click="auth.verificarAuth()">verificar</button>
+<pre>{{auth.usuario | json}}</pre>

@@ -34,6 +34,11 @@
             vm.inChat = true;
         };
 
+        vm.auth = function () {
+            clean();
+            console.log("autenticando");
+        };
+
         function clean() {
             if (vm.sketch){
                 vm.sketch.remove();
