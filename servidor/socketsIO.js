@@ -29,50 +29,12 @@ module.exports = function  (server) {
     function newConnection (socket) {
         // body...
         console.log(socket.id + " Usuarios conectados: " + users);
+        require('./connect/roomChat')(io,socket, users);
+
         socket.on('mouse',mouseMsg);
-        socket.on('msg', sendMsg);
-        socket.on('joinChat', joinChat);
-        socket.on('leaveChat', leaveChat);
-        socket.on('disconnect', function () {
-            console.log("disconected");
-            if(users>0) {
-                users--;
-                console.log("users " + users);
-            }else{
-                console.log("else " + users);
-            }
-
-        });
-
-        function leaveChat() {
-            console.log("leave");
-            socket.leave('chat');
-            defaultMessage.text = "Salio usuario";
-            io.to('chat').emit('leaveChat', defaultMessage);
-            if(users>0)users--;
-            console.log("Joined " + users);
-        }
-
-        function joinChat(data){
-            console.log("join");
-            socket.join('chat');
-            defaultMessage.text = "Hola nuevo usuario";
-            io.to('chat').emit('joinChat',defaultMessage);
-            users++;
-            console.log("joined " + users);
-        }
-
         function  mouseMsg (data) {
             socket.broadcast.emit('mouse',data);
             //console.log(data);
-        }
-
-
-
-        function sendMsg(data) {
-            var message = data.message;
-            message.quien = data.quien;
-            socket.broadcast.to('chat').emit('newMsg', message);
         }
     }
 
