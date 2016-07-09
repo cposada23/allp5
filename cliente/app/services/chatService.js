@@ -36,6 +36,9 @@
                         button.mousePressed(p.instertarMensaje);
                         input.changed(p.instertarMensaje);
                         socket.on('newMsg',p.nuevoMensaje);
+                        socket.on('joinChat', p.nuevoMensaje);
+                        socket.on('adminMsg', p.nuevoMensaje);
+                        socket.on('leaveChat',p.nuevoMensaje);
                     };
 
                     p.nuevoMensaje = function (message) {
@@ -57,7 +60,7 @@
                         };
                         messages.push(message);
                         input.value("");
-                        socket.emit('msg',{message:message, quien:inputNombre.value()})
+                        socket.emit('msg',{message:message, quien:inputNombre.value()});
                         console.log("length: " + messages.length);
                     };
 

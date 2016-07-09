@@ -3,39 +3,50 @@
 (function () {
     angular.module('p5Sketch').controller('navbarController', navbarController);
 
-    navbarController.$inject = ['fireworkService', 'drawService','chatService'];
+    navbarController.$inject = ['fireworkService', 'drawService','chatService', 'socket'];
     
-    function navbarController(fireworkService,drawService,chatService) {
+    function navbarController(fireworkService,drawService,chatService, socket) {
         var vm = this;
         vm.sketch;
+        vm.inChat = false;
 
 
         console.log("nav controller");
         vm.createDrawing = function () {
-            console.log("Click");
-            if  (vm.sketch){
-                console.log("click2");
-                vm.sketch.remove();
-            }
+
+            clean();
+            vm.inChat = false;
             vm.sketch = drawService.sketch();
         };
         
         vm.createFireworks = function () {
-            console.log("Fireworks");
-            if  (vm.sketch){
-                console.log("click2");
-                vm.sketch.remove();
-            }
+
+            clean();
+            vm.inChat = false;
             vm.sketch = fireworkService.sketch();
             
         };
 
         vm.createChat = function () {
-            console.log("Chat");
-            if(vm.sketch){
+
+            clean();
+            vm.sketch = chatService.sketch();
+            if(!vm.inChat){
+                socket.emit('joinChat', 'hola');
+                vm.inChat = true;
+            }
+
+
+
+        };
+
+        function clean() {
+            if (vm.sketch){
                 vm.sketch.remove();
             }
-            vm.sketch = chatService.sketch();
+            if(vm.inChat){
+                socket.emit('leaveChat');
+            }
         }
 
         vm.createDrawing();
