@@ -78,7 +78,7 @@ function newConnection (socket) {
 	function sendMsg(data) {
 		var message = data.message;
 		message.quien = data.quien;
-		socket.broadcast.emit('newMsg', message);
+		socket.broadcast.to('chat').emit('newMsg', message);
 	}
 }
 
