@@ -1,31 +1,20 @@
+var config = require('../config/environment');
+var defaultMessage = config.defaultmessage;
 
-var defaultMessage = {
-    quien:"bot",
-    text: "Hola nuevo usuario!!",
-    x:0,
-    y:10,
-    textSize: 29,
-    r:200,
-    g:100,
-    b:0,
-    t:255
-};
-
-
-module.exports = function  (io,socket, users) {
-    
+var users = 0;
+module.exports = function  (io,socket) {
+    /*setInterval(function () {
+        if (users > 0){
+            defaultMessage.text = "Hay " + users + " usuarios conectados en el chat";
+            io.to('chat').emit('adminMsg', defaultMessage);
+        }
+    }, 3000);*/
     socket.on('msg', sendMsg);
     socket.on('joinChat', joinChat);
     socket.on('leaveChat', leaveChat);
     socket.on('disconnect', function () {
         console.log("disconected");
-        if(users>0) {
-            users--;
-            console.log("users " + users);
-        }else{
-            console.log("else " + users);
-        }
-
+        if(users>0)users--;
     });
 
     function leaveChat() {
@@ -45,10 +34,6 @@ module.exports = function  (io,socket, users) {
         users++;
         console.log("joined " + users);
     }
-
-
-
-
 
     function sendMsg(data) {
         var message = data.message;
