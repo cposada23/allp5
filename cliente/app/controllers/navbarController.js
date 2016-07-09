@@ -28,16 +28,10 @@
         };
 
         vm.createChat = function () {
-
             clean();
             vm.sketch = chatService.sketch();
-            if(!vm.inChat){
-                socket.emit('joinChat', 'hola');
-                vm.inChat = true;
-            }
-
-
-
+            socket.emit('joinChat', 'hola');
+            vm.inChat = true;
         };
 
         function clean() {
@@ -45,6 +39,7 @@
                 vm.sketch.remove();
             }
             if(vm.inChat){
+                vm.inchat = false;
                 socket.emit('leaveChat');
             }
         }

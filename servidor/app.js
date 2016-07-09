@@ -34,25 +34,33 @@ function sendAdminMessage() {
 
 function newConnection (socket) {
 	// body...
-	console.log(socket.id);
+	console.log(socket.id + " Usuarios conectados: " + users);
 	socket.on('mouse',mouseMsg);
 	socket.on('msg', sendMsg);
 	socket.on('joinChat', joinChat);
 	socket.on('leaveChat', leaveChat);
 	socket.on('disconnect', function () {
 		console.log("disconected");
-		users--;
+		if(users>0) {
+			users--;
+			console.log("users " + users);
+		}else{
+			console.log("else " + users);
+		}
+
 	});
 	
 	function leaveChat() {
+		console.log("leave");
 		socket.leave('chat');
 		defaultMessage.text = "Salio usuario";
 		io.to('chat').emit('leaveChat', defaultMessage);
-		users--;
+		if(users>0)users--;
 		console.log("Joined " + users);
 	}
 	
 	function joinChat(data){
+		console.log("join");
 		socket.join('chat');
 		defaultMessage.text = "Hola nuevo usuario";
 		io.to('chat').emit('joinChat',defaultMessage);
