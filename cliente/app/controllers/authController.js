@@ -25,8 +25,16 @@
             $http.get('/api/usuario/me').success(function (response) {
                 console.log("hola  " + JSON.stringify(response));
             }).error(function (error) {
-                console.log("error");
-                console.error(error);
+                console.error("Error " + error);
+            });
+        }
+        
+        vm.verificarAdmin = function () {
+            console.log("verificando que es admin");
+            $http.get('/api/usuario/admin').success(function (response) {
+               console.log("correcto " + JSON.stringify(response)); 
+            }).error(function (error) {
+                console.error("Error " + error);
             });
         }
     }

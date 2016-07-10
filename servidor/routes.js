@@ -5,7 +5,6 @@ var config = require('./config/environment');
 
 module.exports = function  (app) {
 	
-
 	app.use('/api/usuario', require('./api/usuario'));
 
 

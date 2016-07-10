@@ -8,9 +8,6 @@ require('./routes')(app);
 require('./socketsIO')(server);
 
 
-
-
-
 server.listen(config.port, config.ip, function  () {
 	console.log("servidor corriendo en el puerto "+ config.port);
 });

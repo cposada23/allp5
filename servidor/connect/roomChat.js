@@ -1,7 +1,7 @@
 var config = require('../config/environment');
 var defaultMessage = config.defaultmessage;
-
 var users = 0;
+
 module.exports = function  (io,socket) {
     /*setInterval(function () {
         if (users > 0){
