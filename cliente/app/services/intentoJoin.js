@@ -8,20 +8,19 @@
     function intentoService(notificationService) {
         return{
             conectIntento:function (namespace,tok) {
-                var t = true;
+                var t = 0;
                 console.log("Token en intento server "  + tok );
                 
-                while(t){
+                while(t<=1){
                     var socket = io.connect(namespace,{
                         'query': 'token=' + tok
                     });
-                    window.sleep(1);
-                    socket.on('connect', function () {
-                        t = false;
-                    });
+                    t++;
                 }
-                
-                
+
+                socket.on('connect', function () {
+
+                });
 
                 console.log("intentoservice");
 
