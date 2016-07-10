@@ -3,10 +3,13 @@
 (function () {
     /*global angular*/
     /*global io*/
+
+    /* pnotify -> jlareau.pnotify -> Demos: http://pnotify.jlareau.com/demo/  */
     angular
-        .module('p5Sketch',['ui.router', 'ngCookies'])
+        .module('p5Sketch',['ui.router', 'ngCookies','jlareau.pnotify'])
         .config(config)
         .factory('socket', socket)
+        .factory('SocketFactory', SocketFactory)
         .factory('authInterceptor', authInterceptor);
     
     /* authInterceptor */
@@ -61,6 +64,20 @@
     function authInterceptor($rootScope, $q, $cookieSore, $location) {
 
     };*/
+
+    /* SocketFactory */
+    SocketFactory.$inject = [];
+    function SocketFactory() {
+        return {
+            conect: function (dir, query) {
+
+                var dir = dir || '';
+                var query = query || {};
+                var socket = io.connect(dir, query);
+                return socket;
+            }
+        }
+    }
 
 
 
